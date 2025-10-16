@@ -1,0 +1,169 @@
+{
+  "name": "LabbLtd_Extensions_MobileFileUpload",
+  "label": "Mobile File Upload",
+  "description": "A file upload for mobile devices",
+  "organization": "LabbLtd",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "LabbLtd_Extensions_MobileFileUpload",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Field label",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "category",
+      "label": "Category for file attachment to case",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "readOnly",
+      "label": "Edit mode",
+      "format": "READONLY"
+    },
+    {
+      "name": "capture",
+      "label": "Capture mode",
+      "format": "SELECT",
+      "defaultValue": "environment",
+      "required": false,
+      "source": [
+        {
+          "key": "environment",
+          "value": "environment"
+        },
+        {
+          "key": "user",
+          "value": "User"
+        }
+      ]
+    },
+    {
+      "name": "extensions",
+      "label": "Allowed extensions",
+      "format": "TEXT",
+      "required": false
+    },
+    {
+      "name": "accept",
+      "label": "Media accept type",
+      "format": "SELECT",
+      "required": false,
+      "source": [
+        {
+          "key": "environment",
+          "value": "environment"
+        },
+        {
+          "key": "user",
+          "value": "User"
+        }
+      ]
+    },
+    {
+      "name": "multiple",
+      "label": "Allow multiple files",
+      "format": "BOOLEAN",
+      "required": false
+    },
+    {
+      "label": "Column settings",
+      "format": "GROUP",
+      "visibility": "@VIEWTYPE == 'MultiRecordDisplayAsTable'",
+      "properties": [
+        {
+          "name": "columnWidth",
+          "label": "Column width",
+          "format": "SELECT",
+          "source": [
+            {
+              "key": "auto",
+              "value": "Auto"
+            },
+            {
+              "key": "custom",
+              "value": "Custom"
+            }
+          ]
+        },
+        {
+          "name": "width",
+          "label": "Width (px)",
+          "format": "NUMBER",
+          "visibility": "$this.columnWidth == 'custom'"
+        }
+      ]
+    },
+    {
+      "label": "Input settings",
+      "format": "GROUP",
+      "visibility": "(!readOnly = true)",
+      "properties": [
+        {
+          "name": "placeholder",
+          "label": "Placeholder",
+          "format": "TEXT"
+        },
+        {
+          "name": "helperText",
+          "label": "Helper text",
+          "format": "TEXT"
+        }
+      ]
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "required",
+          "label": "Required",
+          "format": "REQUIRED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "disabled",
+          "label": "Disabled",
+          "format": "DISABLED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L $this.label",
+    "capture": "environment",
+    "extensions": "",
+    "accept": "image/*",
+    "allowMultiple": "true",
+    "detailFVLItem": true,
+    "isFormWidth": false,
+    "isContainerWidth": false
+  }
+}

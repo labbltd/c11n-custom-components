@@ -1,0 +1,36 @@
+import { Meta, Primary, Controls, Story } from '@storybook/blocks';
+import * as DemoStories from './demo.stories';
+
+<Meta of={DemoStories} />
+
+# Overview
+The out of the box file upload component has 2 limitations on mobile devices:
+1. Not all mobile devices allow photos to be captured directly by the camera
+2. When an upload fails, there is no way to retry the upload, instead a new photo needs to be taken for upload
+
+This mobile file upload component allows a file to be uploaded by directly capturing an image with the camera on the phone.
+
+The file input HTML element allows for this situation by providing a capture attribute.
+With this attribute set to `environment`, the browser will automatically open the forward facing camera,
+while a value of `user` allows for the back camera to be opened for selfies.
+
+See the [capture and accept](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/file#capture) attributes at mdn.
+
+On mobile devices the upload proces can fail for any number of reasons.
+Since these files are directly captured by the camera, it is not always easy for the user to retake a photo.
+Therefore this component allows for retrying a failed upload attempt without the user needing to re-take the photo.
+
+## Note
+- On desktop browsers the capture attribute will be ignored, and instead a file selector menu will be shown as fallback.
+- For an out of the box file upload component, the option to select a photo using the camera disappears when the accept attribute is set.
+
+The `accept` attribute can be used to determine what [type of media](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/file#unique_file_type_specifiers) can be selected:
+- use `image/*` to open the camera for taking photo's
+- use `video/*` to open the camera for taking a video
+- use `audio/*` to open a voice recorded for recording audio
+
+<Primary />
+
+## Props
+
+<Controls />
