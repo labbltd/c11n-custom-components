@@ -1,0 +1,20 @@
+import { Meta, Primary, Controls, Story } from '@storybook/blocks';
+import * as DemoStories from './demo.stories';
+
+<Meta of={DemoStories} />
+
+# Overview
+When a Pega application is used in an environment where internet is unreliable, it is important to give early feedback to the user about the network status.
+
+When the `restoredDuration` is configured, the network status component will not display anything.
+Set `restoredDuration` to `0` to always show the banner.
+
+This component monitors the online status of the browser, and will show a warning banner when the browser goes offline.
+When the internet is restored, the banner will notify the user and after a timout disappear again.
+
+Toggle the WiFi connection to see the component in the demo below.
+<Primary />
+
+## Props
+
+<Controls />
