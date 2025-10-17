@@ -1,7 +1,7 @@
 {
   "name": "LabbLtd_Extensions_NetworkStatus",
-  "label": "Mobile File Upload",
-  "description": "A file upload for mobile devices",
+  "label": "Network status",
+  "description": "A banner for displaying network status",
   "organization": "LabbLtd",
   "version": "1.0.0",
   "library": "Extensions",
@@ -21,19 +21,19 @@
       "name": "restoredDuration",
       "label": "Duration of showing restored messages (ms)",
       "format": "NUMBER",
-      "required": true
+      "required": false
     },
     {
       "name": "restoredInternetMessage",
       "label": "Message to show when internet is restored",
       "format": "TEXT",
-      "required": true
+      "required": false
     },
     {
       "name": "brokenInternetMessage",
       "label": "Message to show when internet is disconnected",
       "format": "TEXT",
-      "required": true
+      "required": false
     },
     {
       "label": "Column settings",
@@ -60,23 +60,6 @@
           "label": "Width (px)",
           "format": "NUMBER",
           "visibility": "$this.columnWidth == 'custom'"
-        }
-      ]
-    },
-    {
-      "label": "Input settings",
-      "format": "GROUP",
-      "visibility": "(!readOnly = true)",
-      "properties": [
-        {
-          "name": "placeholder",
-          "label": "Placeholder",
-          "format": "TEXT"
-        },
-        {
-          "name": "helperText",
-          "label": "Helper text",
-          "format": "TEXT"
         }
       ]
     },

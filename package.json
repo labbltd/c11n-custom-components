@@ -1,6 +1,6 @@
 {
-  "name": "customcomponents",
-  "description": "",
+  "name": "labbltd-c11n-custom-components",
+  "description": "A UI Gallery of Constellation DX Components",
   "organization": "LabbLtd",
   "version": "1.0.0",
   "main": "src/index.js",
@@ -71,13 +71,13 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/labbltd/c11n-custom-components.git"
   },
   "keywords": [
     "pega"
   ],
-  "author": "",
-  "license": "Enter License",
+  "author": "Labb Ltd.",
+  "license": "MIT",
   "dependencies": {
     "@pega/cosmos-react-condition-builder": "^7.1.2",
     "@pega/cosmos-react-core": "^7.1.2",
@@ -112,6 +112,7 @@
     "@storybook/react": "^7.6.19",
     "@storybook/react-webpack5": "^7.6.19",
     "@storybook/theming": "^7.6.19",
+    "@types/downloadjs": "^1.4.6",
     "@types/emoji-mart": "^3.0.14",
     "@types/lodash.get": "^4.4.9",
     "@types/react": "^17.0.80",

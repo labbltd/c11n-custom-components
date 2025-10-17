@@ -12,26 +12,25 @@ function LabbLtdExtensionsNetworkStatus(props: NetworkStatusProps) {
   const [restored, setRestored] = useState(props.restoredDuration === 0 && navigator.onLine);
 
   useEffect(() => {
+    function registerOffline() {
+      setOffline(true);
+    }
+    function registerOnline() {
+      setOffline(false);
+      setRestored(true);
+      if (props.restoredDuration !== undefined && props.restoredDuration !== 0) {
+        setTimeout(() => {
+          setRestored(false);
+        }, props.restoredDuration);
+      }
+    }
     window.addEventListener("offline", registerOffline);
     window.addEventListener("online", registerOnline);
     return () => {
       window.removeEventListener('offline', registerOffline);
       window.removeEventListener('online', registerOnline);
     };
-  }, []);
-
-  function registerOffline() {
-    setOffline(true);
-  }
-  function registerOnline() {
-    setOffline(false);
-    setRestored(true);
-    if (props.restoredDuration !== undefined && props.restoredDuration !== 0) {
-      setTimeout(() => {
-        setRestored(false);
-      }, props.restoredDuration);
-    }
-  }
+  }, [props.restoredDuration]);
 
   if (offline) {
     return <Banner variant='warning' messages={[{

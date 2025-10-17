@@ -16,7 +16,7 @@ const configProps = {
   capture: 'user',
   accept: 'image/*',
   extensions: '.png, .jpg, .jpeg',
-  label: 'TextInput Sample',
+  label: 'Retry File Upload',
   placeholder: 'TextInput Placeholder',
   helperText: 'TextInput Helper Text',
   multiple: true,
@@ -41,10 +41,19 @@ window.PCore = {
     deRegisterBlockingAction: () => Promise.resolve(),
     cancelDeferredActionsOnError: () => Promise.resolve()
   }),
+  getStore: () => ({
+    subscribe: (fn: Function) => fn()
+  }),
   getStateUtils: () => ({
     updateState: () => { }
   }),
-  getStoreValue: () => ([]),
+  getStoreValue: () => ([
+    {
+      props: {
+        error: true
+      }
+    }
+  ]),
   getAttachmentUtils: () => ({
     prepareAttachmentData: () => ({
       attachments: []

@@ -20,6 +20,10 @@ On mobile devices the upload proces can fail for any number of reasons.
 Since these files are directly captured by the camera, it is not always easy for the user to retake a photo.
 Therefore this component allows for retrying a failed upload attempt without the user needing to re-take the photo.
 
+This component can be linked to an out of the box file upload component.
+Set the `reference` property to the ID of the file upload component to enable the retry mechanism.
+Set the `referenceTestID` to the test ID of the file upload component to set the capture and accept attributes.
+
 ## Note
 - On desktop browsers the capture attribute will be ignored, and instead a file selector menu will be shown as fallback.
 - For an out of the box file upload component, the option to select a photo using the camera disappears when the accept attribute is set.

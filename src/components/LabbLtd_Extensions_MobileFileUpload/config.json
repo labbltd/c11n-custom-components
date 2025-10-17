@@ -18,8 +18,20 @@
       "required": true
     },
     {
-      "name": "category",
-      "label": "Category for file attachment to case",
+      "name": "reference",
+      "label": "Reference to the file upload component",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "referenceTestID",
+      "label": "Reference to the test id of the file upload component",
+      "format": "TEXT",
+      "required": false
+    },
+    {
+      "name": "categoryName",
+      "label": "Category to store the file once uploaded",
       "format": "TEXT",
       "required": true
     },
@@ -46,31 +58,9 @@
       ]
     },
     {
-      "name": "extensions",
-      "label": "Allowed extensions",
-      "format": "TEXT",
-      "required": false
-    },
-    {
       "name": "accept",
       "label": "Media accept type",
-      "format": "SELECT",
-      "required": false,
-      "source": [
-        {
-          "key": "environment",
-          "value": "environment"
-        },
-        {
-          "key": "user",
-          "value": "User"
-        }
-      ]
-    },
-    {
-      "name": "multiple",
-      "label": "Allow multiple files",
-      "format": "BOOLEAN",
+      "format": "TEXT",
       "required": false
     },
     {
