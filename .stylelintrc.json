@@ -1,18 +1,11 @@
 {
-  "extends": ["@pega/stylelint-config"],
-  "rules": {
-    "no-descending-specificity": null,
-    "selector-max-class": null,
-    "selector-max-combinators": null,
-    "selector-max-compound-selectors": null
-  },
+  "extends": [
+    "@pega/stylelint-config"
+  ],
   "ignoreFiles": [
     "node_modules/**",
     "lib/**",
     "!.storybook",
-    ".storybook/public",
-    "storybook-static/**",
-    "Pega_Extensions/**",
-    "store/**"
+    ".storybook/public"
   ]
 }

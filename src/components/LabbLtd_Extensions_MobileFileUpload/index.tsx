@@ -1,5 +1,5 @@
 import { Button, withConfiguration } from '@pega/cosmos-react-core';
-import type { AttachmentProperties } from '@pega/pcore-pconnect-typedefs/attachment/types';
+import type { Attachment, AttachmentProperties } from '@pega/pcore-pconnect-typedefs/attachment/types';
 import { useEffect, useState } from 'react';
 
 interface AttachmentConfig {

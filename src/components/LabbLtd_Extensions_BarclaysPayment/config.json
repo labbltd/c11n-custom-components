@@ -1,0 +1,119 @@
+{
+  "name": "LabbLtd_Extensions_BarclaysPayment",
+  "label": "Barclays payment flow",
+  "description": "Barclays payment flow",
+  "organization": "LabbLtd",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "LabbLtd_Extensions_BarclaysPayment",
+  "type": "Field",
+  "subtype": "Text",
+  "icon": "images/pz-text-input-active.svg",
+  "properties": [
+    {
+      "name": "paymentUrl",
+      "label": "Payment URL",
+      "format": "PROPERTY",
+      "required": true
+    },
+    {
+      "name": "startPaymentLabel",
+      "label": "Start Payment Label",
+      "format": "TEXT",
+      "defaultValue": "Start Payment",
+      "required": false
+    },
+    {
+      "name": "paymentWindowFeatures",
+      "label": "Payment window features",
+      "defaultValue": "popup=yes,menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes,width=800,height=600",
+      "format": "TEXT",
+      "required": false
+    },
+    {
+      "name": "pollingInterval",
+      "label": "Polling interval (ms)",
+      "format": "NUMBER",
+      "defaultValue": 1000,
+      "required": false
+    },
+    {
+      "name": "pollingTimeout",
+      "label": "Polling timeout (ms)",
+      "format": "NUMBER",
+      "defaultValue": 300000,
+      "required": false
+    },
+    {
+      "label": "Payment Status",
+      "format": "GROUP",
+      "required": true,
+      "properties": [
+        {
+          "name": "paymentStatusDatapage",
+          "label": "Data page",
+          "format": "TEXT"
+        },
+        {
+          "name": "transactionTime",
+          "label": "Transaction Time",
+          "format": "PROPERTY"
+        },
+        {
+          "name": "transNo",
+          "label": "Transaction No",
+          "format": "PROPERTY"
+        },
+        {
+          "name": "transactionReference",
+          "label": "Transaction Reference",
+          "format": "PROPERTY"
+        }
+      ]
+    },
+    {
+      "label": "Conditions",
+      "format": "GROUP",
+      "properties": [
+        {
+          "name": "required",
+          "label": "Required",
+          "format": "REQUIRED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "disabled",
+          "label": "Disabled",
+          "format": "DISABLED",
+          "visibility": "(!readOnly = true)"
+        },
+        {
+          "name": "visibility",
+          "label": "Visibility",
+          "format": "VISIBILITY"
+        }
+      ]
+    },
+    {
+      "label": "Advanced",
+      "format": "GROUP",
+      "collapsible": true,
+      "properties": [
+        {
+          "name": "testId",
+          "label": "Test ID",
+          "format": "TEXT",
+          "ignorePattern": "[^-_\\p{N}\\p{L}]",
+          "includeAnnotations": false
+        }
+      ]
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L $this.label",
+    "detailFVLItem": true,
+    "isFormWidth": false,
+    "isContainerWidth": false
+  }
+}
