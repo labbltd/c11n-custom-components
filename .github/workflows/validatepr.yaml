@@ -1,0 +1,50 @@
+# Workflow name
+name: Validate PRs
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  # Event for the workflow to run on
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    timeout-minutes: 8
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['24.x']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+        timeout-minutes: 10
+      - name: Build Storybook
+        run: npm run build-storybook
+      - uses: Eun/http-server-action@v1
+        with:
+          directory: ${{ github.workspace }}/storybook-static
+          port: 6006
+          no-cache: false
+          index-files: |
+            ["index.html", "index.htm"]
+          allowed-methods: |
+            ["GET", "HEAD"]
+          log: 'log.txt'
+          logTime: 'true'
+      - name: Test http server
+        run: |
+          curl -vvvv http://localhost:6006/index.html
+          cat log.txt
+      - name: Run tests
+        run: npm run test-storybook -- --maxWorkers=1 --verbose

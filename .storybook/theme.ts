@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming';
+import { create } from 'storybook/theming';
 
 const primaryColor = '#005EA7';
 const secondaryColor = '#0076D1';
@@ -19,7 +19,7 @@ export default create({
   appBorderRadius: 4,
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: "'Open Sans', sans-serif",
   fontCode: 'monospace',
 
   // Text colors
@@ -37,8 +37,8 @@ export default create({
   inputTextColor: black,
   inputBorderRadius: 4,
 
-  brandTitle: 'Labb\'s Constellation Custom Component System',
+  brandTitle: "Labb's Constellation Custom Component System",
   brandImage: './labb-dark.webp',
   brandUrl: 'https://www.labb.ltd',
-  brandTarget: '_self'
+  brandTarget: '_self',
 });

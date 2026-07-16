@@ -1,0 +1,36 @@
+import { Meta, Primary, Controls } from '@storybook/addon-docs/blocks';
+import * as DemoStories from './demo.stories';
+
+<Meta of={DemoStories} />
+
+# Overview
+
+The GOV.UK-style ["Check your answers"](https://design-system.service.gov.uk/patterns/check-answers/) pattern: a review page shown as the last step of a
+multi-step form, listing everything the user entered with a **Change** link per row that jumps
+straight back to the step where that answer was captured.
+
+This is a **form template**. Configure it as the view template of the final step of a multi-step
+(screen flow) assignment, then add the fields you want to review to the _Fields to review_ region.
+
+## Grouping and change links
+
+- Use **groups** in the region — one group per flow step, in flow order. Each group renders as its
+  own section, and its rows get a Change link that navigates back to the matching step.
+- A group is matched to a step **by name** first (group label equals step name), falling back to
+  **position** (first group → first completed step).
+- Change links call `getActionsApi().navigateToStep(stepID, containerItemID)`, the same API the
+  out-of-the-box multi-step navigation uses. After changing an answer, the user moves forward
+  through the remaining steps again — standard Pega screen-flow behaviour.
+- Without groups, all fields render as a single summary list; the rows link to the first completed
+  step, so grouping is recommended for flows with more than one step.
+- If the assignment is not a multi-step form (no navigation steps), the summary renders without
+  Change links.
+
+Try clicking a **Change** link in the demo below — in this Storybook mock it shows the
+`navigateToStep` call that would be made at runtime.
+
+<Primary />
+
+## Props
+
+<Controls />

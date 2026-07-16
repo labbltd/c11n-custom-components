@@ -1,0 +1,43 @@
+{
+  "name": "LabbLtd_Extensions_CheckYourAnswers",
+  "label": "Check your answers",
+  "description": "GOV.UK-style review page for multi-step forms with per-section change links that jump back into the flow",
+  "organization": "LabbLtd",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "LabbLtd_Extensions_CheckYourAnswers",
+  "type": "Template",
+  "subtype": "FORM",
+  "icon": "CheckYourAnswers.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Heading",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "showLabel",
+      "label": "Show heading",
+      "format": "BOOLEAN"
+    },
+    {
+      "name": "changeLabel",
+      "label": "Change link text",
+      "format": "TEXT"
+    },
+    {
+      "name": "A",
+      "label": "Fields to review",
+      "format": "CONTENTPICKER",
+      "addTypeList": ["Fields"],
+      "allowCreatingGroup": true
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L Check your answers",
+    "showLabel": true,
+    "changeLabel": "@L Change"
+  }
+}

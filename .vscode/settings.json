@@ -48,12 +48,7 @@
   "typescript.preferences.quoteStyle": "single",
   "typescript.format.semicolons": "insert",
 
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   }
