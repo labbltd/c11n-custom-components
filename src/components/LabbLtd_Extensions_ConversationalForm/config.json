@@ -1,0 +1,49 @@
+{
+  "name": "LabbLtd_Extensions_ConversationalForm",
+  "label": "Conversational form",
+  "description": "Chat-style form template that reveals the assignment fields one at a time as a conversation",
+  "organization": "LabbLtd",
+  "version": "1.0.0",
+  "library": "Extensions",
+  "allowedApplications": [],
+  "componentKey": "LabbLtd_Extensions_ConversationalForm",
+  "type": "Template",
+  "subtype": "FORM",
+  "icon": "ConversationalForm.svg",
+  "properties": [
+    {
+      "name": "label",
+      "label": "Heading",
+      "format": "TEXT",
+      "required": true
+    },
+    {
+      "name": "showLabel",
+      "label": "Show heading",
+      "format": "BOOLEAN"
+    },
+    {
+      "name": "nextLabel",
+      "label": "Next button text",
+      "format": "TEXT"
+    },
+    {
+      "name": "completionMessage",
+      "label": "Completion message",
+      "format": "TEXT"
+    },
+    {
+      "name": "A",
+      "label": "Questions",
+      "format": "CONTENTPICKER",
+      "addTypeList": ["Fields"],
+      "allowCreatingGroup": true
+    }
+  ],
+  "defaultConfig": {
+    "label": "@L Conversational form",
+    "showLabel": false,
+    "nextLabel": "@L Next",
+    "completionMessage": "@L That is everything. Review your answers above, then submit."
+  }
+}

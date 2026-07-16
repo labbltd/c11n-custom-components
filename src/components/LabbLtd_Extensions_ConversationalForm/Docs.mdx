@@ -1,0 +1,39 @@
+import { Meta, Primary, Controls } from '@storybook/addon-docs/blocks';
+import * as DemoStories from './demo.stories';
+
+<Meta of={DemoStories} />
+
+# Overview
+
+A chat-style **form template** that renders the assignment's fields one at a time as a
+conversation: each question appears as a "bot" bubble, the live (fully functional) Pega field
+renders below it, and once answered the value collapses into a "user" bubble on the right.
+
+Configure it as the view template of an assignment step and add fields to the _Questions_ region.
+Groups are flattened, so every field becomes one question in authored order.
+
+## How it works
+
+- Each question is instantiated on demand with `getPConnect().createComponent(fieldMeta)`, so the
+  real Constellation field component renders — with its own formatting, pickers and store binding —
+  not a re-implementation of it.
+- **Next** advances the conversation. If the field is marked required and has no value yet, a hint
+  is shown instead of advancing. Full server-side validation still happens on submit, as usual.
+- Clicking an answered bubble reopens that question; **Next** then returns to where you left off.
+- Answers that are skipped (optional fields) show as _Not answered yet_ and stay clickable.
+- Submitting remains the job of the assignment's own action buttons below the template.
+
+## Accessibility
+
+- The conversation is a `role="log"` / `aria-live="polite"` region, so screen readers announce new
+  questions as they appear.
+- Answered bubbles are real buttons with an accessible "Change answer" label.
+- The reveal animation and smooth auto-scroll are disabled under `prefers-reduced-motion`.
+
+Type an answer and press **Next** in the demo below.
+
+<Primary />
+
+## Props
+
+<Controls />

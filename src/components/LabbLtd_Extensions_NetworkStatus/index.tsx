@@ -24,8 +24,8 @@ function LabbLtdExtensionsNetworkStatus(props: NetworkStatusProps) {
         }, props.restoredDuration);
       }
     }
-    window.addEventListener("offline", registerOffline);
-    window.addEventListener("online", registerOnline);
+    window.addEventListener('offline', registerOffline);
+    window.addEventListener('online', registerOnline);
     return () => {
       window.removeEventListener('offline', registerOffline);
       window.removeEventListener('online', registerOnline);
@@ -33,14 +33,28 @@ function LabbLtdExtensionsNetworkStatus(props: NetworkStatusProps) {
   }, [props.restoredDuration]);
 
   if (offline) {
-    return <Banner variant='warning' messages={[{
-      label: props.brokenInternetMessage || 'Internet connection has been broken'
-    }]} />;
+    return (
+      <Banner
+        variant='warning'
+        messages={[
+          {
+            label: props.brokenInternetMessage || 'Internet connection has been broken',
+          },
+        ]}
+      />
+    );
   }
   if (restored) {
-    return <Banner variant='success' messages={[{
-      label: props.restoredInternetMessage || 'Internet connection is restored'
-    }]} />;
+    return (
+      <Banner
+        variant='success'
+        messages={[
+          {
+            label: props.restoredInternetMessage || 'Internet connection is restored',
+          },
+        ]}
+      />
+    );
   }
   return null;
 }

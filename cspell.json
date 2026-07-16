@@ -10,5 +10,7 @@
     "**/.DS_Store",
     "**/*.zip",
     "**/*.tgz"
-  ]
+  ],
+  "allowCompoundWords": true,
+  "words": ["labb", "labbltd", "PYCASESUMMARY", "PYGENERICFIELDS"]
 }

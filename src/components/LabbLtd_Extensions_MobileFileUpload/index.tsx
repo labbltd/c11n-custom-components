@@ -37,15 +37,10 @@ function LabbLtdExtensionsMobileFileUpload(props: any) {
   }
 
   function updateAttachmentsInState(attachments: AttachmentConfig[]): void {
-    window.PCore.getStateUtils().updateState(
-      props.getPConnect().getContextName(),
-      getStoreKey(),
-      attachments,
-      {
-        pageReference: 'context_data',
-        isArrayDeepMerge: false
-      }
-    );
+    window.PCore.getStateUtils().updateState(props.getPConnect().getContextName(), getStoreKey(), attachments, {
+      pageReference: 'context_data',
+      isArrayDeepMerge: false,
+    });
   }
 
   async function retry(): Promise<void> {
@@ -61,9 +56,9 @@ function LabbLtdExtensionsMobileFileUpload(props: any) {
         // client side validation succeeded, ready to upload to server
         try {
           // put file on server
-          // eslint-disable-next-line no-await-in-loop
+
           const fileRes = await window.PCore.getAttachmentUtils().uploadAttachment(
-            file,
+            file as any,
             (event: any) => {
               file.props.progress = Math.floor((event.loaded / event.total) * 100);
             },
@@ -74,7 +69,7 @@ function LabbLtdExtensionsMobileFileUpload(props: any) {
                 file.props.error = true;
               }
             },
-            props.getPConnect().getContextName()
+            props.getPConnect().getContextName(),
           );
 
           if (fileRes) {
@@ -87,11 +82,10 @@ function LabbLtdExtensionsMobileFileUpload(props: any) {
             file.category = props.categoryName;
             file.responseProps = {
               ID: 'temp',
-              fileName: file.props.name
+              fileName: file.props.name,
             } as AttachmentProperties['responseProps'];
           }
-        } catch (error) {
-          // eslint-disable-next-line no-await-in-loop
+        } catch {
           await window.PCore.getActionsSequencer().cancelDeferredActionsOnError(props.getPConnect().getContextName());
         }
       }
@@ -116,7 +110,7 @@ function LabbLtdExtensionsMobileFileUpload(props: any) {
         fileInput.setAttribute('accept', props.accept || 'image/*');
       }
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return hasFailedFiles ? <Button onClick={() => retry()}>{props.label || 'Retry File Upload'}</Button> : null;
 }
