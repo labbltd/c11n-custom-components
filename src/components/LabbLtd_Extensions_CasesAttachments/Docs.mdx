@@ -1,0 +1,25 @@
+import { Meta, Primary, Controls, Story } from '@storybook/addon-docs/blocks';
+import * as DemoStories from './demo.stories';
+
+<Meta of={DemoStories} />
+
+# Overview
+
+The Cases Attachments widget renders attachments in a read-only mode. It is a fork of Pega's Display Attachments widget: while Pega's widget only works on case level (showing the attachments of that case), this widget works outside of a case and shows the attachments of multiple cases. The list of cases is retrieved through a data page, configured via the 'casesDataPage' property; the data page must return the cases' pzInsKey values. This widget is not a replacement of the attachment widget since it does not let you upload, delete or edit existing attachments.
+
+If 'useAttachmentEndpoint' is true, the widget will use the OOB attachment DX API to retrieve all the attachments - You can filter the attachments to display by providing a comma-separated list of 'categories'. If this parameter is false,
+you must provide a list DataPage that will be used to get all the attachments - the filtering must be done on the server within the DP directly. The Data page will be called with the parameter 'LinkRefFrom' that will contain the case InsKey.
+To create this DP, you can look at how the DP D_AttachmentList and customize the report definition.
+
+You can also change the 'displayFormat' to render either as a list (when using in the Utility column)
+or as a set of tiles (when rendered in a Details view).
+
+By default all attachments are shown in a single list. Set 'groupByCase' to true to group the attachments per case: each case gets its own section, headed by the case ID (pyID, falling back to pyLabel or pzInsKey from the cases data page). With 'enableDownloadAll' enabled, each group gets its own 'Download all' action that only downloads that case's attachments.
+
+Images can also be rendered in a Lightbox component instead of being opened in a new browser tab. It is also possible to expose a 'Download all' action that will let you download all the files at once.
+
+<Primary />
+
+## Props
+
+<Controls />
